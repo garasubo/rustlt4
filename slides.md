@@ -15,6 +15,7 @@ Medium: https://medium.com/@garasubo
 OSなしでのプログラミング
 - OSそのもの
 - ブートローダー
+- 仮想マシンモニタ（VMM）
 - 組込みシステム
 
 C言語（or C++）とアセンブラで書くのが定番
