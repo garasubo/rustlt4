@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <meta charset="utf-8">
+
+<title>Rustで低レイヤープログラミング</title>
+
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="generator" content="reveal-ck 3.9.2">
+
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+
+<link rel="stylesheet" href="css/reveal-ck.css">
+
+
+<!-- Printing and PDF exports -->
+<script>
+  var link = document.createElement( 'link' );
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+  document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+  </head>
+
+  <body>
+    <div class="reveal">
+  <!-- Any section element inside of this container is displayed as a slide -->
+  <div class="slides">
+    <section>
+
+<h1>Rustで始める低レイヤープログラミング</h1>
+<p><a href="https://github.com/garasubo" class="user-mention">@garasubo</a></p>
+
+</section>
+<section>
+
+<h2>自己紹介</h2>
+<p>Twitter: <a href="https://twitter.com/garasubo">https://twitter.com/garasubo</a></p>
+
+<p>Github: <a href="https://github.com/garasubo">https://github.com/garasubo</a></p>
+
+<p>Medium: <a href="https://medium.com/">https://medium.com/</a><a href="https://github.com/garasubo" class="user-mention">@garasubo</a></p>
+
+</section>
+<section>
+
+<h2>低レイヤープログラミング</h2>
+<p>OSなしでのプログラミング</p>
+<ul>
+  <li>OSそのもの</li>
+  <li>ブートローダー</li>
+  <li>組込みシステム</li>
+</ul>
+
+<p>C言語（or C++）とアセンブラで書くのが定番</p>
+
+</section>
+<section>
+
+<h2>Rustでも低レイヤープログラミング</h2>
+<ul>
+  <li>ガベージコレクションがなく高速</li>
+  <li>モダンな各種言語の機能</li>
+  <li>アセンブラ・C言語との連携も可能</li>
+</ul>
+
+</section>
+<section>
+
+<h2>最近の動向</h2>
+<p>活発に低レイヤー向けのサポートが追加されている</p>
+<ul>
+  <li>Embedded Devices ワーキンググループの発足
+    <ul>
+      <li>ドキュメント・ライブラリが充実しつつある</li>
+      <li>
+<a href="https://github.com/japaric" class="user-mention">@japaric</a>氏が中心</li>
+    </ul>
+  </li>
+  <li>コンパイラターゲットの追加
+    <ul>
+      <li>Arm、RISC-V、UEFIアプリケーションなど</li>
+      <li>stableでもコンパイル可能</li>
+    </ul>
+  </li>
+  <li>cargoのサポート
+    <ul>
+      <li>xargoはメンテナンスモードに</li>
+    </ul>
+  </li>
+</ul>
+
+</section>
+<section>
+
+<h2>Rust低レイヤープログラミング入門</h2>
+<ul>
+  <li>
+<a href="https://rust-embedded.github.io/book/">The Embedded Rust Book</a>
+    <ul>
+      <li>Arm Cortex-M系がメインの組込みシステム</li>
+      <li>
+<a href="https://tomoyuki-nakabayashi.github.io/book/">日本語版</a>もあるよ</li>
+    </ul>
+  </li>
+  <li>
+<a href="https://os.phil-opp.com/">Writing an OS in Rust</a>
+    <ul>
+      <li>BIOSで起動するOSを書く</li>
+    </ul>
+  </li>
+  <li>
+<a href="https://github.com/rust-osdev/uefi-rs">uefi-rs</a>
+    <ul>
+      <li>UEFIアプリケーションを書くためのライブラリ</li>
+    </ul>
+  </li>
+  <li>
+<a href="https://github.com/rust-embedded/rust-raspi3-OS-tutorials">rust-raspi3-OS-tutorials</a>
+    <ul>
+      <li>Raspberry Pi 3で動くOSを書く</li>
+    </ul>
+  </li>
+</ul>
+
+</section>
+<section>
+
+<h2>実際のプロダクト</h2>
+<ul>
+  <li>
+<a href="https://www.tockos.org/">Tock</a>
+    <ul>
+      <li>Cortex-M向けの組込みOS</li>
+      <li>nightlyでビルドできる</li>
+    </ul>
+  </li>
+  <li>
+<a href="https://gitlab.redox-os.org/redox-os/redox">Redox</a>
+    <ul>
+      <li>デスクトップOS</li>
+      <li>Rustコンパイラそのものに手を加えている</li>
+    </ul>
+  </li>
+  <li>
+<a href="https://firecracker-microvm.github.io/">Firecracker</a>
+    <ul>
+      <li>Amazon製のVMM</li>
+    </ul>
+  </li>
+</ul>
+
+</section>
+<section>
+
+<h2>注意点</h2>
+<ul>
+  <li>基本的にstdライブラリは使えない
+    <ul>
+      <li>BoxとかArcが使えない！</li>
+      <li>Cellなどcoreライブラリは使える</li>
+      <li>所有権の管理を考えた設計が必要</li>
+    </ul>
+  </li>
+  <li>生のポインタの参照外し、グローバル変数の変更はunsafe
+    <ul>
+      <li>多用するとRustで書く意義が薄れる</li>
+      <li>抽象化を適切にしてunsafeの範囲を限定したい</li>
+    </ul>
+  </li>
+</ul>
+
+</section>
+<section>
+
+<h2>触ってみての感想</h2>
+<ul>
+  <li>Rustで低レイヤープログラミングは良さそう</li>
+  <li>設計は工夫しないと厳しい気持ちになる</li>
+  <li>更新が早いので最新情報は常にチェックしたい</li>
+</ul>
+
+</section>
+
+  </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+
+<script>
+  (function() {
+  function extend( a, b ) {
+    for(var i in b) {
+      a[i] = b[i];
+    }
+  }
+  var baseOptions = {
+    transition: 'page',
+
+    dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+    ]
+  };
+
+  
+
+  var configOptions = {"autoSlide":5000,"loop":true}
+  var initializeOptions = {};
+  extend(initializeOptions, baseOptions);
+  extend(initializeOptions, configOptions);
+  Reveal.initialize(initializeOptions);
+})();
+
+</script>
+
+  </body>
+</html>
