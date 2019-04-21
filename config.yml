@@ -1,0 +1,6 @@
+theme: "night"
+transition: "page"
+title: "Rustで低レイヤープログラミング"
+revealjs_config:
+    autoSlide: 5000
+    loop: true
